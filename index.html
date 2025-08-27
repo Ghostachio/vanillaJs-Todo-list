@@ -13,13 +13,21 @@
   </head>
   <body>
     <main class="container">
-      <h1>Today's Todo List</h1>
+      <section class="header">
+        <h1>Today's Todo List</h1>
+        <h2 id="numTasks">No Tasks For Today yet</h2>
+      </section>
+
       <section class="add-todo">
         <input type="text" id="task" placeholder="Add Your Task" />
         <span class="material-symbols-outlined add"> add_circle </span>
       </section>
       <section class="todos">
         <ul class="todos-list"></ul>
+      </section>
+      <section class="buttons">
+        <button class="btn" id="clear">Clear All</button>
+        <button class="btn" id="all-done">Mark All as Done</button>
       </section>
     </main>
   </body>
