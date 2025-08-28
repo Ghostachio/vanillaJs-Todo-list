@@ -8,7 +8,11 @@ const allDone = document.querySelector("#all-done");
 const markDone = document.querySelector(".markDone");
 const item = document.querySelector(".item");
 
-let todos = [];
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+const saveTodos = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
 
 const renderTodos = () => {
   list.innerHTML = "";
@@ -57,6 +61,7 @@ const addTodo = () => {
   if (!task.value) return;
   const todo = { id: randomId, task: task.value, isDone: false };
   todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
   task.value = "";
   renderTodos();
 };
@@ -71,7 +76,7 @@ add.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-  todos = [];
+  localStorage.clear();
   renderTodos();
 });
 
@@ -79,6 +84,6 @@ allDone.addEventListener("click", () => {
   for (let todo of todos) {
     todo.isDone = true;
   }
-  console.log(todos);
+
   renderTodos();
 });
