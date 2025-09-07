@@ -77,6 +77,7 @@ add.addEventListener("click", () => {
 
 clear.addEventListener("click", () => {
   localStorage.clear();
+  todos = [];
   renderTodos();
 });
 
@@ -84,6 +85,7 @@ allDone.addEventListener("click", () => {
   for (let todo of todos) {
     todo.isDone = true;
   }
-
   renderTodos();
 });
+
+renderTodos();
